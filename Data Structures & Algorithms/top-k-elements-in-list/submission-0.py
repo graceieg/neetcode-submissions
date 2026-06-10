@@ -1,0 +1,15 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = 0
+        freq = {}
+
+        for num in nums: 
+            if num in freq: 
+                freq[num] += 1
+            else: 
+                freq[num] = 1
+            
+        sorted_keys = sorted(freq, key=lambda x: freq[x], reverse=True)
+
+        return sorted_keys[:k]
+        
